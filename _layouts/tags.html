@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div class="page-content">
+  <h1 class="page-title">Tags</h1>
+
+  <!-- Tag cloud / index -->
+  <div class="tag-cloud">
+    {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+    {% for tag in all_tags %}
+    {% assign tag_stripped = tag | strip %}
+    {% if tag_stripped != "" %}
+    {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag_stripped" %}
+    <a href="#{{ tag_stripped | slugify }}" class="tag tag-cloud-item">
+      {{ tag_stripped }} <span class="tag-count">{{ tag_posts.size }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Posts grouped by tag -->
+  {% for tag in all_tags %}
+  {% assign tag_stripped = tag | strip %}
+  {% if tag_stripped != "" %}
+  {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag_stripped" %}
+  <section class="tag-section" id="{{ tag_stripped | slugify }}">
+    <h2 class="tag-section-heading">
+      <span class="tag">{{ tag_stripped }}</span>
+      <span class="tag-count-label">{{ tag_posts.size }}件</span>
+    </h2>
+    <ul class="archive-post-list">
+      {% for post in tag_posts %}
+      <li class="archive-post-item">
+        <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y年%m月%d日" }}
+        </time>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% endfor %}
+</div>
