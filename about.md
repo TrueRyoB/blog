@@ -11,3 +11,7 @@ permalink: /about/
 ## 連絡先
 
 ご意見・ご感想などありましたら、お気軽にどうぞ。
+
+- メール: `trueryob [at] proton.me`
+- X (Twitter): [@aphelios_like](https://x.com/aphelios_like)
+- マシュマロ: [marshmallow-qa.com](https://marshmallow-qa.com/c1ae19cyqqrls66)
