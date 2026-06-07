@@ -1,0 +1,67 @@
+---
+layout: default
+title: "面接 FRQ"
+permalink: /interview/
+---
+
+<div class="page-content">
+  <h1 class="page-title">面接 FRQ</h1>
+  <p class="page-desc">就活の典型質問に対する自分なりの回答集。キーワードであいまい検索できます。</p>
+
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="search"
+        id="interview-search-input"
+        placeholder="質問・キーワードを入力…"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="面接質問を検索"
+      >
+    </div>
+    <div id="interview-results" class="search-results" aria-live="polite"></div>
+  </div>
+</div>
+
+<script type="application/json" id="interview-data">
+[
+  {
+    "category": "基本",
+    "question": "自己PR",
+    "answer": "（執筆中）"
+  },
+  {
+    "category": "基本",
+    "question": "学生時代に最も力を入れたこと",
+    "answer": "（執筆中）"
+  },
+  {
+    "category": "趣味・嗜好",
+    "question": "AtCoderを始めた理由",
+    "answer": "問題解決能力を強化するためです。そこで培われる数学的な考え方を日常の意思決定に応用することで、より大局的な意思決定ができます。"
+  },
+  {
+    "category": "強み・弱み",
+    "question": "あなたの強みを教えてください",
+    "answer": "（執筆中）"
+  },
+  {
+    "category": "強み・弱み",
+    "question": "あなたの弱みを教えてください",
+    "answer": "（執筆中）"
+  },
+  {
+    "category": "将来",
+    "question": "5年後のビジョンを教えてください",
+    "answer": "（執筆中）"
+  }
+]
+</script>
+
+<script src="{{ site.baseurl }}/assets/js/interview-search.js"></script>
