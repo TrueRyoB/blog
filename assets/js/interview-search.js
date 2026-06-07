@@ -9,7 +9,9 @@
   var dataEl = document.getElementById('interview-data');
   var interviewData = [];
   try {
-    interviewData = JSON.parse(dataEl.textContent);
+    interviewData = JSON.parse(dataEl.textContent).filter(function (item) {
+      return item.answer && item.answer.trim() !== '';
+    });
   } catch (e) {
     resultsContainer.innerHTML = '<p class="search-no-results">データの読み込みに失敗しました。</p>';
     return;
@@ -74,7 +76,7 @@
     var hl = queryTokens && queryTokens.length > 0;
     var html = '';
     items.forEach(function (item) {
-      var question = hl ? highlight(item.question, queryTokens) : escapeHtml(item.question);
+      var question = escapeHtml(item.question);
       var answer   = hl ? highlight(item.answer,   queryTokens) : escapeHtml(item.answer);
       html += '<div class="search-result-item">';
       html += '<div class="result-meta"><span class="tag tag-sm">' + escapeHtml(item.category) + '</span></div>';
