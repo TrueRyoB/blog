@@ -2,7 +2,7 @@
 layout: post
 title: "はじめまして"
 date: 2026-06-06
-tags: [uzabase, 南国ソフト, 競プロ, Kaggle]
+tags: [Uzabase, 南国ソフト, 競プロ, Kaggle]
 description: "個人技術日誌を始めました。先週の学びを振り返ります - TDD、ホスト移行、GNN、Kaggle。"
 ---
 
