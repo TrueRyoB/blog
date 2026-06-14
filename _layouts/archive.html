@@ -24,14 +24,12 @@ layout: default
           <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
             {{ post.date | date: "%d日" }}
           </time>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          {% if post.tags.size > 0 %}
-          <span class="post-tags-inline">
-            {% for tag in post.tags %}
-            <a href="{{ site.baseurl }}/tags#{{ tag | slugify }}" class="tag tag-sm">{{ tag }}</a>
-            {% endfor %}
-          </span>
-          {% endif %}
+          <div class="archive-post-body">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            {% if post.description %}
+            <p class="archive-post-desc">{{ post.description }}</p>
+            {% endif %}
+          </div>
         </li>
         {% endfor %}
       </ul>
