@@ -30,38 +30,7 @@ permalink: /interview/
 </div>
 
 <script type="application/json" id="interview-data">
-[
-  {
-    "category": "基本",
-    "question": "自己PR",
-    "answer": ""
-  },
-  {
-    "category": "基本",
-    "question": "学生時代に最も力を入れたこと",
-    "answer": ""
-  },
-  {
-    "category": "趣味・嗜好",
-    "question": "AtCoderを始めた理由",
-    "answer": "問題解決能力を強化するためです。そこで培われる数学的な考え方を日常に取り入れることで、より大局的な意思決定ができます。"
-  },
-  {
-    "category": "強み・弱み",
-    "question": "あなたの強みを教えてください",
-    "answer": ""
-  },
-  {
-    "category": "強み・弱み",
-    "question": "あなたの弱みを教えてください",
-    "answer": ""
-  },
-  {
-    "category": "将来",
-    "question": "5年後のビジョンを教えてください",
-    "answer": ""
-  }
-]
+{{ site.data.interview | jsonify }}
 </script>
 
 <script src="{{ site.baseurl }}/assets/js/interview-search.js"></script>

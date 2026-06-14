@@ -17,6 +17,8 @@
     return;
   }
 
+  var renderedItems = [];
+
   /* ---- Tokenize: whitespace/punct split + CJK bi-grams ---- */
   function tokenize(text) {
     if (!text) return [];
@@ -67,24 +69,108 @@
     return safe;
   }
 
+  /* ---- Modal ---- */
+  var modalOverlay = null;
+
+  function ensureModal() {
+    if (modalOverlay) return;
+    modalOverlay = document.createElement('div');
+    modalOverlay.className = 'card-modal-overlay';
+    modalOverlay.innerHTML =
+      '<div class="card-modal">' +
+        '<button class="card-modal-close" aria-label="閉じる">&#x2715;</button>' +
+        '<div class="card-modal-meta"></div>' +
+        '<div class="card-modal-question"></div>' +
+        '<div class="card-modal-answer"></div>' +
+      '</div>';
+    modalOverlay.addEventListener('click', function (e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+    modalOverlay.querySelector('.card-modal-close').addEventListener('click', closeModal);
+    document.body.appendChild(modalOverlay);
+  }
+
+  function openModal(item) {
+    ensureModal();
+    modalOverlay.querySelector('.card-modal-meta').textContent = item.category || '';
+    modalOverlay.querySelector('.card-modal-question').textContent = item.question || '';
+    modalOverlay.querySelector('.card-modal-answer').textContent = item.answer || '';
+    modalOverlay.classList.add('is-open');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    if (modalOverlay) modalOverlay.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+
+  /* ---- Press duration detection (distinguish tap from text selection) ---- */
+  var pressStart = 0;
+  var pressItemIdx = -1;
+  var CLICK_MAX_MS = 300;
+
+  resultsContainer.addEventListener('pointerdown', function (e) {
+    var item = e.target.closest('.search-result-item--expandable');
+    if (!item) return;
+    pressStart = Date.now();
+    pressItemIdx = parseInt(item.dataset.idx, 10);
+  });
+
+  resultsContainer.addEventListener('pointerup', function (e) {
+    if (pressStart === 0) return;
+    var elapsed = Date.now() - pressStart;
+    pressStart = 0;
+    if (elapsed >= CLICK_MAX_MS) return;
+    if (window.getSelection().toString().trim() !== '') return;
+    var item = e.target.closest('.search-result-item--expandable');
+    if (!item) return;
+    var idx = parseInt(item.dataset.idx, 10);
+    if (isNaN(idx) || idx !== pressItemIdx || !renderedItems[idx]) return;
+    openModal(renderedItems[idx]);
+  });
+
+  resultsContainer.addEventListener('pointercancel', function () {
+    pressStart = 0;
+    pressItemIdx = -1;
+  });
+
+  /* ---- Mark cards whose answer overflows 2 lines as expandable ---- */
+  function initExpandable() {
+    resultsContainer.querySelectorAll('.search-result-item').forEach(function (itemEl) {
+      var excerpt = itemEl.querySelector('.result-excerpt');
+      if (!excerpt) return;
+      if (excerpt.scrollHeight > excerpt.clientHeight + 2) {
+        itemEl.classList.add('search-result-item--expandable');
+      }
+    });
+  }
+
   /* ---- Render items ---- */
   function renderItems(items, queryTokens) {
+    renderedItems = items;
     if (items.length === 0) {
       resultsContainer.innerHTML = '<p class="search-no-results">該当する質問が見つかりませんでした。</p>';
       return;
     }
     var hl = queryTokens && queryTokens.length > 0;
     var html = '';
-    items.forEach(function (item) {
+    items.forEach(function (item, idx) {
       var question = escapeHtml(item.question);
-      var answer   = hl ? highlight(item.answer,   queryTokens) : escapeHtml(item.answer);
-      html += '<div class="search-result-item">';
+      var answer   = hl ? highlight(item.answer, queryTokens) : escapeHtml(item.answer);
+      html += '<div class="search-result-item" data-idx="' + idx + '">';
       html += '<div class="result-meta"><span class="tag tag-sm">' + escapeHtml(item.category) + '</span></div>';
       html += '<div class="result-title" style="font-weight:600;margin-top:0.4rem">' + question + '</div>';
-      html += '<div class="result-excerpt" style="white-space:pre-wrap">' + answer + '</div>';
+      html += '<div class="result-excerpt">' + answer + '</div>';
       html += '</div>';
     });
     resultsContainer.innerHTML = html;
+    initExpandable();
   }
 
   /* ---- Search handler ---- */
