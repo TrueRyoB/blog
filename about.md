@@ -4,7 +4,7 @@ title: "About"
 permalink: /about/
 ---
 
-アーカンソー大学にて正規留学をしていますtrueです。
+アーカンソー大学にて正規留学をしています。
 
 このブログでは、私の技術的な目線を日誌単位で共有できれば幸いです。
 
@@ -15,3 +15,8 @@ permalink: /about/
 - メール: `trueryob [at] proton.me`
 - X (Twitter): [@aphelios_like](https://x.com/aphelios_like)
 - マシュマロ: [marshmallow-qa.com](https://marshmallow-qa.com/c1ae19cyqqrls66)
+
+## 活動
+
+- Zenn: [/trueryob](https://zenn.dev/trueryob)
+- AtCoder: [TrueRyoB](https://atcoder.jp/users/TrueRyoB)
