@@ -20,3 +20,4 @@ permalink: /about/
 
 - Zenn: [/trueryob](https://zenn.dev/trueryob)
 - AtCoder: [TrueRyoB](https://atcoder.jp/users/TrueRyoB)
+- GitHub: [TrueRyoB](https://github.com/TrueRyoB)
