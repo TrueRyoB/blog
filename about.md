@@ -20,5 +20,5 @@ Please feel free to reach me out.
 
 - [Kaggle](https://www.kaggle.com/trueryob)
 - [GitHub](https://github.com/TrueRyoB)
+- [NewsPicks](https://newspicks.com/user/11987469/)
 - [AtCoder](https://atcoder.jp/users/TrueRyoB)
-
