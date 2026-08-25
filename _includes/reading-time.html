@@ -1,9 +1,10 @@
-{% assign words = include.content | number_of_words %}
-{% if words < 100 %}
-  {% assign reading_time = 1 %}
-{% elsif words < 200 %}
-  {% assign reading_time = 2 %}
-{% else %}
-  {% assign reading_time = words | divided_by: 500 | plus: 1 %}
+{% assign plain_text = include.content | strip_html | strip_newlines %}
+{% assign word_count = plain_text | number_of_words %}
+{% assign character_count = plain_text | remove: " " | size %}
+{% assign word_reading_time = word_count | minus: 1 | divided_by: 200 | plus: 1 %}
+{% assign character_reading_time = character_count | minus: 1 | divided_by: 500 | plus: 1 %}
+{% assign reading_time = word_reading_time %}
+{% if character_reading_time > word_reading_time %}
+  {% assign reading_time = character_reading_time %}
 {% endif %}
 <span class="reading-time">{{ reading_time }} min read</span>
