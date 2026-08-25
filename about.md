@@ -4,20 +4,21 @@ title: "About"
 permalink: /about/
 ---
 
-アーカンソー大学にて正規留学をしています。
+I am an international student at the University of Arkansas.
 
-このブログでは、私の技術的な目線を日誌単位で共有できれば幸いです。
+I hope to use this blog to share my technical insights in the form of daily entries.
 
-## 連絡先
 
-ご意見・ご感想などありましたら、お気軽にどうぞ。
+## Contact
 
-- メール: `trueryob [at] proton.me`
-- X (Twitter): [@aphelios_like](https://x.com/aphelios_like)
-- マシュマロ: [marshmallow-qa.com](https://marshmallow-qa.com/c1ae19cyqqrls66)
+Please feel free to reach me out.
 
-## 活動
+- X (Twitter): [@TrueAraki](https://x.com/TrueAraki)
+- email: `trueryob [at] proton.me`
 
-- Zenn: [/trueryob](https://zenn.dev/trueryob)
-- AtCoder: [TrueRyoB](https://atcoder.jp/users/TrueRyoB)
-- GitHub: [TrueRyoB](https://github.com/TrueRyoB)
+## Activity
+
+- [Kaggle](https://www.kaggle.com/trueryob)
+- [GitHub](https://github.com/TrueRyoB)
+- [AtCoder](https://atcoder.jp/users/TrueRyoB)
+
