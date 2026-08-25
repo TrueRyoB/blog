@@ -84,6 +84,22 @@
 <!-- Main stylesheet -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
 
+<!-- Math notation: inline $...$ or \(...\), display $$...$$ or \[...\] -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <!-- Dark mode: apply before render to avoid flash -->
 <script>
   (function() {
