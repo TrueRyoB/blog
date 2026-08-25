@@ -13,25 +13,18 @@
       return item.answer && item.answer.trim() !== '';
     });
   } catch (e) {
-    resultsContainer.innerHTML = '<p class="search-no-results">データの読み込みに失敗しました。</p>';
+    resultsContainer.innerHTML = '<p class="search-no-results">Unable to load the FAQ data.</p>';
     return;
   }
 
   var renderedItems = [];
 
-  /* ---- Tokenize: whitespace/punct split + CJK bi-grams ---- */
+  /* ---- Tokenize: split on whitespace and punctuation ---- */
   function tokenize(text) {
     if (!text) return [];
     var tokens = [];
     var words = text.toLowerCase().split(/[\s　、。！？「」『』（）【】\-_,.]+/).filter(Boolean);
     tokens = tokens.concat(words);
-    var cjkOnly = text.replace(/[^　-鿿＀-￯]/g, '');
-    for (var i = 0; i < cjkOnly.length - 1; i++) {
-      tokens.push(cjkOnly.slice(i, i + 2));
-    }
-    for (var j = 0; j < cjkOnly.length; j++) {
-      tokens.push(cjkOnly[j]);
-    }
     return tokens;
   }
 
@@ -78,7 +71,7 @@
     modalOverlay.className = 'card-modal-overlay';
     modalOverlay.innerHTML =
       '<div class="card-modal">' +
-        '<button class="card-modal-close" aria-label="閉じる">&#x2715;</button>' +
+        '<button class="card-modal-close" aria-label="Close">&#x2715;</button>' +
         '<div class="card-modal-meta"></div>' +
         '<div class="card-modal-question"></div>' +
         '<div class="card-modal-answer"></div>' +
@@ -155,7 +148,7 @@
   function renderItems(items, queryTokens) {
     renderedItems = items;
     if (items.length === 0) {
-      resultsContainer.innerHTML = '<p class="search-no-results">該当する質問が見つかりませんでした。</p>';
+      resultsContainer.innerHTML = '<p class="search-no-results">No matching questions found.</p>';
       return;
     }
     var hl = queryTokens && queryTokens.length > 0;

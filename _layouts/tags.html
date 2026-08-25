@@ -27,13 +27,13 @@ layout: default
   <section class="tag-section" id="{{ tag_stripped | slugify }}">
     <h2 class="tag-section-heading">
       <span class="tag">{{ tag_stripped }}</span>
-      <span class="tag-count-label">{{ tag_posts.size }}件</span>
+      <span class="tag-count-label">{{ tag_posts.size }} posts</span>
     </h2>
     <ul class="archive-post-list">
       {% for post in tag_posts %}
       <li class="archive-post-item">
         <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%Y年%m月%d日" }}
+          {% include date-ordinal.html date=post.date %}
         </time>
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </li>

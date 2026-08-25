@@ -1,12 +1,12 @@
-title: "trueの技術日誌"
-description: "大学生のリアルな技術的視点をお届けします"
+title: "true's blog"
+description: "Technical insights from a university student's perspective"
 url: "https://TrueRyoB.github.io"
 baseurl: "/blog"
 author:
   name: "true"
   email: "trueryob@proton.me"
 
-lang: ja
+lang: en
 timezone: Asia/Tokyo
 
 markdown: kramdown

@@ -1,0 +1,14 @@
+{%- assign day = include.date | date: "%d" | plus: 0 -%}
+{%- assign last_two_digits = day | modulo: 100 -%}
+{%- assign last_digit = day | modulo: 10 -%}
+{%- assign suffix = "th" -%}
+{%- if last_two_digits < 11 or last_two_digits > 13 -%}
+  {%- if last_digit == 1 -%}
+    {%- assign suffix = "st" -%}
+  {%- elsif last_digit == 2 -%}
+    {%- assign suffix = "nd" -%}
+  {%- elsif last_digit == 3 -%}
+    {%- assign suffix = "rd" -%}
+  {%- endif -%}
+{%- endif -%}
+{{- include.date | date: "%B" }} {{ day }}{{ suffix }}, {{ include.date | date: "%Y" -}}

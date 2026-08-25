@@ -9,7 +9,7 @@
 
   function openMenu() {
     toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'メニューを閉じる');
+    toggle.setAttribute('aria-label', 'Close menu');
     menu.classList.add('is-open');
     menu.setAttribute('aria-hidden', 'false');
     backdrop.classList.add('is-open');
@@ -18,7 +18,7 @@
 
   function closeMenu() {
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'メニューを開く');
+    toggle.setAttribute('aria-label', 'Open menu');
     menu.classList.remove('is-open');
     menu.setAttribute('aria-hidden', 'true');
     backdrop.classList.remove('is-open');

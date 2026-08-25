@@ -8,7 +8,7 @@ layout: default
     <article class="post-item">
       <div class="post-meta-line">
         <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%Y年%m月%d日" }}
+          {% include date-ordinal.html date=post.date %}
         </time>
         {% include reading-time.html content=post.content %}
       </div>

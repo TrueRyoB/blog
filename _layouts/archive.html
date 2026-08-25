@@ -9,20 +9,20 @@ layout: default
 
   {% for year_group in posts_by_year %}
   <section class="archive-year">
-    <h2 class="archive-year-heading" id="y{{ year_group.name }}">{{ year_group.name }}年</h2>
+    <h2 class="archive-year-heading" id="y{{ year_group.name }}">{{ year_group.name }}</h2>
 
     {% assign posts_by_month = year_group.items | group_by_exp: "post", "post.date | date: '%m'" %}
 
     {% for month_group in posts_by_month %}
     <section class="archive-month">
       <h3 class="archive-month-heading" id="y{{ year_group.name }}m{{ month_group.name }}">
-        {{ month_group.name | remove_first: "0" }}月
+        {{ month_group.items.first.date | date: "%B" }}
       </h3>
       <ul class="archive-post-list">
         {% for post in month_group.items %}
         <li class="archive-post-item">
           <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: "%d日" }}
+            {{ post.date | date: "%-d" }}
           </time>
           <div class="archive-post-body">
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

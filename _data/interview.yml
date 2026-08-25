@@ -1,40 +1,40 @@
-- category: 基本
-  question: 自己PR
+- category: General
+  question: Tell me about yourself.
   answer: ""
 
-- category: 基本
-  question: 学生時代に最も力を入れたこと
+- category: General
+  question: What did you focus on most during university?
   answer: ""
 
-- category: 趣味・嗜好
-  question: AtCoderを始めた理由
-  answer: 問題解決能力を強化するためです。そこで培われる数学的な考え方を日常に取り入れることで、より大局的な意思決定ができます。
+- category: Interests
+  question: Why did you start using AtCoder?
+  answer: I wanted to strengthen my problem-solving skills. Applying the mathematical way of thinking I develop there to everyday life helps me make decisions with a broader perspective.
 
-- category: インターン
-  question: 初年度の南国ソフトさんでの取り組み
+- category: Internship
+  question: What did you work on during your first-year internship at Nangoku Soft?
   answer: |
-    昨年、約2か月半にわたり日本でインターンに参加し、その後もアメリカへ戻ってからオンラインで継続して業務に携わらせていただいた。
+    Last year, I completed an internship in Japan that lasted about two and a half months. After returning to the United States, I continued contributing remotely.
 
-    主な担当はフロントエンド開発を中心とした下流工程だった。当時は実務開発の経験がほとんどなく、UI実装やJavaScriptによる機能開発を手探りで進めていた。
+    My primary responsibility was front-end development. At the time, I had very little professional development experience, so I learned my way through UI implementation and JavaScript feature development as I went.
 
-    特に課題だったのは、「既に存在する技術やツールを活用する」という発想が不足していたことだ。例えば、レイアウト調整のために画面上で定規を使って採寸しながらpaddingを決めたり、ライブラリや既存実装を調査せずにJavaScriptのロジックをゼロから作成したりすることもあった。結果として、いわゆる「車輪の再発明」をしてしまった場面も少なくなかった。
+    One challenge was that I had not yet developed the habit of making use of existing technologies and tools. For example, I sometimes measured a screen with a ruler to set padding for layout adjustments, or built JavaScript logic from scratch without first researching libraries or established implementations. This occasionally led me to reinvent the wheel.
 
-    一方で、分からないことが多い環境でも自分で調査しながら開発を進める力は身についたと感じている。与えられたタスクを完了させるために試行錯誤を重ね、実際に手を動かしながら学ぶ経験を積むことができた。
+    At the same time, I developed the ability to research independently and keep moving forward even when much was unfamiliar. I gained experience in experimenting, learning by doing, and seeing tasks through to completion.
 
-    また、このインターンでは比較的明確にタスクが定義されており、要件に沿って実装を進めることが中心だった。そのため、ユーザー体験やプロダクト全体の設計を深く考える機会は多くなかったと感じている。
+    The internship also had relatively well-defined tasks, so much of the work centered on implementing requirements. As a result, there were fewer opportunities to think deeply about user experience or product-wide design.
 
-    その中で得られた最大の学びは、「まず動くものを素早く作る」ことの重要性だった。短期間でMVP（Minimum Viable Product）を形にし、検証を進める開発プロセスを経験できたことは大きな収穫だった。技術そのものは今後AIによって効率化されていく部分も多いが、実際に開発の現場で手を動かしながら学んだ経験は、自分の考え方や仕事への向き合い方を大きく変えるきっかけになった。
+    My biggest takeaway was the importance of building a working version quickly. Turning an MVP into something tangible in a short period and iterating on it was a valuable experience. AI will make many technical tasks more efficient, but learning by building in a real development environment has meaningfully shaped how I think about my work.
 
-    今後は、単に機能を実装するだけでなく、「ユーザーにとって心地よいUXをどう設計するか」という視点にも取り組みたいと考えている。昨年の経験で得た開発基礎を土台として、より良いプロダクト体験を作れるエンジニアを目指したい。
+    Going forward, I want to go beyond implementing features and also focus on designing comfortable, thoughtful user experiences. Building on the development fundamentals I gained last year, I aim to become an engineer who creates better product experiences.
 
-- category: 強み・弱み
-  question: あなたの強みを教えてください
+- category: Strengths and weaknesses
+  question: What are your strengths?
   answer: ""
 
-- category: 強み・弱み
-  question: あなたの弱みを教えてください
+- category: Strengths and weaknesses
+  question: What are your weaknesses?
   answer: ""
 
-- category: 将来
-  question: 5年後のビジョンを教えてください
+- category: Future
+  question: Where do you see yourself in five years?
   answer: ""

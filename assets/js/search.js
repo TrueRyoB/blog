@@ -1,7 +1,7 @@
 /**
  * search.js
  * Client-side search using a pre-built search.json index.
- * Japanese-friendly: searches by character-level overlap in addition to word tokens.
+ * Searches post titles, tags, and excerpts.
  * No external dependencies.
  */
 (function () {
@@ -28,11 +28,11 @@
         callback();
       })
       .catch(function () {
-        resultsContainer.innerHTML = '<p class="search-no-results">インデックスの読み込みに失敗しました。</p>';
+        resultsContainer.innerHTML = '<p class="search-no-results">Unable to load the search index.</p>';
       });
   }
 
-  /* ---- Tokenize: split on whitespace + punctuation, also include n-grams for CJK ---- */
+  /* ---- Tokenize: split on whitespace and punctuation ---- */
   function tokenize(text) {
     if (!text) return [];
     var tokens = [];
@@ -40,16 +40,6 @@
     // ASCII word tokens
     var words = text.toLowerCase().split(/[\s　、。！？「」『』（）【】\-_,.]+/).filter(Boolean);
     tokens = tokens.concat(words);
-
-    // CJK bi-grams (for Japanese)
-    var cjkOnly = text.replace(/[^　-鿿＀-￯]/g, '');
-    for (var i = 0; i < cjkOnly.length - 1; i++) {
-      tokens.push(cjkOnly.slice(i, i + 2));
-    }
-    // Also individual CJK characters
-    for (var j = 0; j < cjkOnly.length; j++) {
-      tokens.push(cjkOnly[j]);
-    }
 
     return tokens;
   }
@@ -116,7 +106,7 @@
   /* ---- Render results ---- */
   function renderResults(results, queryTokens) {
     if (results.length === 0) {
-      resultsContainer.innerHTML = '<p class="search-no-results">該当する記事が見つかりませんでした。</p>';
+      resultsContainer.innerHTML = '<p class="search-no-results">No matching posts found.</p>';
       return;
     }
 
@@ -144,7 +134,7 @@
     var query = searchInput.value.trim();
 
     if (query.length < 1) {
-      resultsContainer.innerHTML = '<p class="search-hint">キーワードを入力してください。</p>';
+      resultsContainer.innerHTML = '<p class="search-hint">Enter a keyword to search posts.</p>';
       return;
     }
 
@@ -177,7 +167,7 @@
     searchInput.value = initialQuery;
     loadIndex(doSearch);
   } else {
-    resultsContainer.innerHTML = '<p class="search-hint">キーワードを入力してください。</p>';
+    resultsContainer.innerHTML = '<p class="search-hint">Enter a keyword to search posts.</p>';
   }
 
   // Focus input
