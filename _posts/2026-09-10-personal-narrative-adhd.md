@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Personal Narrative as ADHD"
+title: "Need to challenge the existing paradigm as ADHD"
 date: 2026-09-10
-tags: [ADHD, narrative]
-description: "I explored the need to challenge the existing surroundings."
+tags: [ADHD, competitive programming, narrative]
+description: "it is my personal narrative as a uni student."
 ---
 
 Each of us is unique, but most of the solutions we use aren't. We are taught standardized ways to study, organize our time, and get things done. These solutions work for many people because they address the commonalities among us. But what happens when you are the exception?
