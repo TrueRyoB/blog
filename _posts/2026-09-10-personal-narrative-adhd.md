@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Need to challenge the existing paradigm as ADHD"
+title: "A need to challenge existing paradigms as ADHD"
 date: 2026-09-10
 tags: [ADHD, competitive programming, narrative]
 description: "it is my personal narrative as a uni student."
